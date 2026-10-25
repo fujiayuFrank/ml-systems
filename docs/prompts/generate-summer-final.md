@@ -2,6 +2,10 @@
 description: Generate the Summer 2026 (Paris) combined final exam — or a practice version of it — from this term's agenda and the past exams
 ---
 
+> **Record of the 2026 exam.** For a future three-week offering, use
+> [`generate-combined.md`](generate-combined.md); this file keeps the exact
+> parameters used in 2026 and is what students should use to practice for that exam.
+
 This is the term-specific recipe used to draft the **Summer 2026 combined final**
 (Thu Sep 17, 2026). It instantiates the general prompt in
 [`generate-exam.md`](generate-exam.md); read that first for the LaTeX
@@ -71,7 +75,7 @@ From the Meeting 9 review:
 
 ## Output
 
-- Instructor: `/Users/feamster/Dropbox/Tmp/exams/ml-systems/final/2026/` — never committed before the exam is given; afterwards it is published in `docs/final/2026/` with solutions.
+- Instructor: `/Users/feamster/Dropbox/Tmp/exams/ml-systems/combined/2026/` — never committed before the exam is given; afterwards it is published in `docs/combined/2026/` with solutions.
 - Students: any directory of your own, e.g. `~/ml-systems-practice/final/`. Copy `feamster.sty` and the `Makefile` from `2025/`, then `make all`.
 
 ## Validation

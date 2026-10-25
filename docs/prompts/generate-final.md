@@ -11,8 +11,8 @@ Read that file for the LaTeX conventions and workflow; use these parameters.
 | Agenda | `docs/agenda/<term>.md`, Meetings 9 onward (supervised models, deep learning and nPrint, unsupervised learning, generative models), with light reference back to the pipeline material |
 | Past exams | `docs/final/<YYYY>/` — the two or three most recent |
 | Length | 4 pages, 50 points, designed for 30–40 minutes; ends with a 2-point feedback section |
-| Must include | questions on the later hands-ons (linear/logistic regression, trees and ensembles, deep learning, PCA, clustering, diffusion) and on the project deliverables |
+| Must include | questions on the hands-ons the agenda records in the meeting range (typically regression, trees and ensembles, deep learning, PCA, clustering, generative models) and on the project deliverables; every final flag in the range |
 | Instructor output | `/Users/feamster/Dropbox/Tmp/exams/ml-systems/final/<YYYY>/` (not committed until after the exam) |
 
-For a short term with a single combined exam, use the term-specific file instead
-(e.g. [`generate-summer-final.md`](generate-summer-final.md)).
+For the three-week offering, which has a single combined exam, use
+[`generate-combined.md`](generate-combined.md) instead.
