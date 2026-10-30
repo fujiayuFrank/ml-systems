@@ -10,7 +10,7 @@ instructor runs it to draft the real one.
 
 1. **Exam type**: `midterm`, `final`, or `combined`. The nine-week offering has a
    midterm and a final; the three-week offering has one combined exam (see
-   [`generate-combined.md`](generate-combined.md)). The nine-week offering
+   [`generate-combined.md`](../combined/generate-combined.md)). The nine-week offering
    has typically run in Autumn and the three-week one in September, but either may
    move to another part of the year; go by the offering's length, not the season.
 2. **Term agenda file**: `docs/agenda/<term>.md` (e.g. `docs/agenda/2026-summer.md`).
@@ -24,7 +24,7 @@ instructor runs it to draft the real one.
 5. **Output directory**. Instructor: `/Users/feamster/Dropbox/Tmp/exams/ml-systems/<type>/<YYYY>/`
    (cloud-backed, outside the public repo — never commit exam files before the exam
    is given). Students: any directory of your own; nothing here is secret.
-6. **Past exams to imitate**: 2–3 most recent under `docs/midterm/<YYYY>/` and
+6. **Past exams to imitate** (read each one's `rubric.yaml`, `grading-notes.md`, and `analysis.md` first where present; skip questions they mark ambiguous): 2–3 most recent under `docs/midterm/<YYYY>/` and
    `docs/final/<YYYY>/` (each has `questions.tex`, `instructions.tex`, `exam.tex`,
    `feamster.sty`, and usually a Makefile). For a combined exam, read one midterm
    and one final. Imitate exams of the same kind: nine-week midterms and finals are
@@ -81,6 +81,29 @@ Create an exam that:
   The name box is not a numbered question; the first `\prob` is question 1.
 - Multiple choice: `\correctanswercircle{}` for correct options, `\answercircle{}`
   otherwise. Keep option text short enough for the two-column layout.
+- **Randomize where the correct answers sit.** The key must not be readable
+  from the layout. In every multiple-choice question put the correct options at
+  random positions: in a two-column grid spread them across both columns and
+  different rows, never all in the left column or the top rows; in a
+  single-column list, not always first. Across the exam, correct options should
+  land about evenly in every position and column, consecutive single-answer
+  questions should not share the key's position, and select-all questions should
+  vary in how many options are correct. Balance yes/no keys too: use both
+  `\yesnoyes` and `\yesnono`, in no fixed pattern. Before finishing, write out
+  the whole key (for example "Q1: B, C, F; Q5: no; Q9: D") and fix any pattern
+  you can see in it.
+- **Show the answer key as a table before the exam is final**, for the
+  instructor to look over, one row per question with an answer to check:
+
+  | Question | Type | Correct answer(s) |
+  |---|---|---|
+  | Q3 | single answer | 2 of 5 |
+  | Q5 | select all | 1, 2, 4 of 5 |
+  | Q8 | yes/no | no |
+
+  Give positions as they appear on the page (count across the row, then down,
+  in a two-column grid). Note under the table any pattern still visible, such
+  as two single-answer keys in the same position, so the instructor can decide.
 - Yes/no: `\framebox{\yesnoyes}` or `\framebox{\yesnono}` (no braces around Yes/No).
 - Short answer: `\answerbox{height-in-inches}{solution text}`; 1.0–3.0 in depending on
   expected length; solution text must be a single paragraph and must not contain `&`.
@@ -102,7 +125,9 @@ pdfinfo exam.pdf | grep Pages          # must equal the requested page count
 grep -o '\\prob{[0-9]*}' questions.tex | tr -dc '0-9\n' | awk '{s+=$1} END {print s}'   # must equal the point total
 ```
 Open the PDF: no overlapping text, answer boxes start on a new line, multiple-choice
-options don't spill across columns. Too long: remove page breaks between sections,
+options don't spill across columns. Open `exam-solution.pdf` too and look at where
+the filled bubbles and circled yes/no answers fall: no column, row or position
+should stand out. Too long: remove page breaks between sections,
 shrink boxes, merge questions. Too short: enlarge boxes.
 
 ## Instructor-only
